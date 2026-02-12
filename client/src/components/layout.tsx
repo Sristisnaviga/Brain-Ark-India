@@ -1,7 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { useData } from "@/lib/mockData";
 import { Button } from "@/components/ui/button";
-import { BrainCircuit, Menu, X, User as UserIcon, Calendar, MessageSquare, LogOut } from "lucide-react";
+import { BrainCircuit, Menu, X, User as UserIcon, Calendar, MessageSquare, LogOut, Languages } from "lucide-react";
 import { useState } from "react";
 import {
   DropdownMenu,
@@ -12,7 +12,7 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  const { user, logout, isAdmin } = useData();
+  const { user, logout, isAdmin, language, setLanguage } = useData();
   const [location] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -26,6 +26,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </Link>
     );
+  };
+
+  const toggleLanguage = () => {
+    setLanguage(language === 'en' ? 'ta' : 'en');
   };
 
   return (
@@ -45,16 +49,22 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-2">
+          <nav className="hidden md:flex items-center gap-1 lg:gap-2 text-sm lg:text-base">
             <NavLink href="/">Home</NavLink>
-            <NavLink href="/about">About GBP</NavLink>
+            <NavLink href="/grade-10">Grade 10</NavLink>
+            <NavLink href="/grade-12">Grade 12</NavLink>
             <NavLink href="/book">Book Session</NavLink>
             <NavLink href="/community">Community</NavLink>
             {isAdmin && <NavLink href="/admin">Admin</NavLink>}
           </nav>
 
-          {/* Desktop Auth */}
+          {/* Desktop Right Side */}
           <div className="hidden md:flex items-center gap-4">
+            <Button variant="ghost" size="sm" onClick={toggleLanguage} className="gap-2">
+              <Languages className="w-4 h-4" />
+              {language === 'en' ? 'தமிழ்' : 'English'}
+            </Button>
+            
             {user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -78,7 +88,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </div>
 
           {/* Mobile Menu */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-2">
+             <Button variant="ghost" size="sm" onClick={toggleLanguage} className="px-2">
+              {language === 'en' ? 'தமிழ்' : 'Eng'}
+            </Button>
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon"><Menu className="w-6 h-6" /></Button>
@@ -86,7 +99,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <SheetContent>
                 <div className="flex flex-col gap-4 mt-8">
                   <NavLink href="/" icon={BrainCircuit}>Home</NavLink>
-                  <NavLink href="/about" icon={BrainCircuit}>About GBP</NavLink>
+                  <NavLink href="/grade-10" icon={BrainCircuit}>Grade 10 Guidance</NavLink>
+                  <NavLink href="/grade-12" icon={BrainCircuit}>Grade 12 Guidance</NavLink>
                   <NavLink href="/book" icon={Calendar}>Book Session</NavLink>
                   <NavLink href="/community" icon={MessageSquare}>Community</NavLink>
                   {isAdmin && <NavLink href="/admin" icon={UserIcon}>Admin</NavLink>}
@@ -129,7 +143,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <div>
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link href="/about" className="hover:text-primary">What is GBP?</Link></li>
+              <li><Link href="/grade-10" className="hover:text-primary">Stream Selection (Grade 10)</Link></li>
+              <li><Link href="/grade-12" className="hover:text-primary">Career Guidance (Grade 12)</Link></li>
               <li><Link href="/book" className="hover:text-primary">Book a Session</Link></li>
               <li><Link href="/community" className="hover:text-primary">Community Forum</Link></li>
             </ul>

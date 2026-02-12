@@ -13,6 +13,8 @@ import BookSession from "@/pages/book-session";
 import Community from "@/pages/community";
 import Profile from "@/pages/profile";
 import AdminDashboard from "@/pages/admin";
+import Grade10Landing from "@/pages/grade-10";
+import Grade12Landing from "@/pages/grade-12";
 
 function Router() {
   return (
@@ -24,7 +26,8 @@ function Router() {
       <Route path="/profile" component={Profile} />
       <Route path="/dashboard" component={Profile} />
       <Route path="/admin" component={AdminDashboard} />
-      {/* For demo purposes, about redirects to home or could be a separate page */}
+      <Route path="/grade-10" component={Grade10Landing} />
+      <Route path="/grade-12" component={Grade12Landing} />
       <Route path="/about" component={Home} />
       
       <Route component={NotFound} />

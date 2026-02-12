@@ -23,6 +23,9 @@ export type Booking = {
   time: string;
   status: "confirmed" | "pending" | "cancelled";
   paymentStatus: "paid" | "unpaid";
+  reportType?: "Adult" | "Child";
+  amount?: number;
+  invoiceGenerated?: boolean;
 };
 
 export type Post = {
@@ -79,7 +82,17 @@ const INITIAL_POSTS: Post[] = [
 ];
 
 const INITIAL_BOOKINGS: Booking[] = [
-  { id: "b1", userId: "2", date: "2024-02-15", time: "10:00 AM", status: "confirmed", paymentStatus: "paid" }
+  { 
+    id: "b1", 
+    userId: "2", 
+    date: "2024-02-15", 
+    time: "10:00 AM", 
+    status: "confirmed", 
+    paymentStatus: "paid",
+    reportType: "Child",
+    amount: 3000,
+    invoiceGenerated: true
+  }
 ];
 
 // Context
@@ -88,10 +101,12 @@ type DataContextType = {
   users: User[];
   posts: Post[];
   bookings: Booking[];
+  language: 'en' | 'ta';
+  setLanguage: (lang: 'en' | 'ta') => void;
   login: (email: string) => void;
   logout: () => void;
   register: (name: string, email: string, role: User["role"]) => void;
-  addBooking: (date: string, time: string) => void;
+  addBooking: (date: string, time: string, reportType: "Adult" | "Child", amount: number) => Booking;
   addPost: (title: string, content: string, category: Post["category"]) => void;
   likePost: (postId: string) => void;
   isAdmin: boolean;
@@ -104,6 +119,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   const [users, setUsers] = useState<User[]>(INITIAL_USERS);
   const [posts, setPosts] = useState<Post[]>(INITIAL_POSTS);
   const [bookings, setBookings] = useState<Booking[]>(INITIAL_BOOKINGS);
+  const [language, setLanguage] = useState<'en' | 'ta'>('en');
   const [, setLocation] = useLocation();
   const { toast } = useToast();
 
@@ -132,18 +148,22 @@ export function DataProvider({ children }: { children: ReactNode }) {
     toast({ title: "Logged out", description: "See you soon!" });
   };
 
-  const addBooking = (date: string, time: string) => {
-    if (!user) return;
+  const addBooking = (date: string, time: string, reportType: "Adult" | "Child", amount: number) => {
+    if (!user) throw new Error("User must be logged in");
     const newBooking: Booking = {
       id: Math.random().toString(),
       userId: user.id,
       date,
       time,
       status: "confirmed",
-      paymentStatus: "paid" // Mocking successful payment
+      paymentStatus: "paid", // Mocking successful payment
+      reportType,
+      amount,
+      invoiceGenerated: true
     };
     setBookings([...bookings, newBooking]);
-    toast({ title: "Booking Confirmed!", description: `Session booked for ${date} at ${time}` });
+    toast({ title: "Booking Confirmed!", description: `Session booked for ${date} at ${time}. WhatsApp confirmation sent.` });
+    return newBooking;
   };
 
   const addPost = (title: string, content: string, category: Post["category"]) => {
@@ -169,7 +189,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
 
   return (
     <DataContext.Provider value={{ 
-      user, users, posts, bookings, 
+      user, users, posts, bookings, language, setLanguage,
       login, logout, register, 
       addBooking, addPost, likePost, 
       isAdmin: user?.role === "admin" 
