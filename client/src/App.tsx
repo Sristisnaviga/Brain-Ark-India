@@ -4,13 +4,29 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
+import { DataProvider } from "@/lib/mockData";
+
+// Pages
+import Home from "@/pages/home";
+import Auth from "@/pages/auth";
+import BookSession from "@/pages/book-session";
+import Community from "@/pages/community";
+import Profile from "@/pages/profile";
+import AdminDashboard from "@/pages/admin";
 
 function Router() {
   return (
     <Switch>
-      {/* Add pages below */}
-      {/* <Route path="/" component={Home}/> */}
-      {/* Fallback to 404 */}
+      <Route path="/" component={Home} />
+      <Route path="/auth" component={Auth} />
+      <Route path="/book" component={BookSession} />
+      <Route path="/community" component={Community} />
+      <Route path="/profile" component={Profile} />
+      <Route path="/dashboard" component={Profile} />
+      <Route path="/admin" component={AdminDashboard} />
+      {/* For demo purposes, about redirects to home or could be a separate page */}
+      <Route path="/about" component={Home} />
+      
       <Route component={NotFound} />
     </Switch>
   );
@@ -19,10 +35,12 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Router />
-      </TooltipProvider>
+      <DataProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Router />
+        </TooltipProvider>
+      </DataProvider>
     </QueryClientProvider>
   );
 }
