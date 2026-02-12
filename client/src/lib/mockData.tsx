@@ -51,7 +51,7 @@ export type Comment = {
 // Mock Initial Data
 const INITIAL_USERS: User[] = [
   { id: "1", name: "Admin User", email: "admin@sristi.com", role: "admin" },
-  { id: "2", name: "Rahul Sharma", email: "rahul@example.com", role: "parent", profile: { studentName: "Arjun", grade: "10", phone: "9876543210" } },
+  { id: "2", name: "Rahul Sharma", email: "rahul@example.com", role: "parent", profile: { studentName: "Arjun", grade: "10", phone: "8072159491" } },
 ];
 
 const INITIAL_POSTS: Post[] = [

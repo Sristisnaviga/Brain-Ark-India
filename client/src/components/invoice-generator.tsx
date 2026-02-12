@@ -113,7 +113,7 @@ const InvoiceDocument = ({ booking, user, invoiceNumber }: InvoiceProps) => (
         <View style={styles.companyInfo}>
           <Text style={{ fontWeight: 'bold', fontSize: 12 }}>Sristi BrainArk</Text>
           <Text>123, Gandhi Puram</Text>
-          <Text>Coimbatore, TN 641012</Text>
+          <Text>Coimbatore, TN, India</Text>
           <Text>GSTIN: 33ABCDE1234F1Z5</Text>
         </View>
       </View>

@@ -153,8 +153,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>support@sristibrainark.com</li>
-              <li>+91 98765 43210</li>
-              <li>Bangalore, India</li>
+              <li>+91 80721 59491</li>
+              <li>Coimbatore, TN, India</li>
             </ul>
           </div>
         </div>

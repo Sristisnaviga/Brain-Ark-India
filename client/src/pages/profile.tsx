@@ -46,7 +46,7 @@ export default function Profile() {
                 </div>
                 <div className="flex items-center gap-3 text-sm text-muted-foreground">
                   <Phone className="w-4 h-4" />
-                  +91 98765 43210
+                  +91 80721 59491
                 </div>
                 <Separator />
                 <Button variant="outline" className="w-full gap-2">

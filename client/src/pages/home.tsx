@@ -139,7 +139,7 @@ export default function Home() {
               <div className="space-y-8">
                 {[
                   "Book a slot for fingerprint scanning (15 mins).",
-                  "Our experts generate a detailed 30-page report.",
+                  "Our experts generate a detailed report.",
                   "Attend a 1-hour counseling session to understand the report.",
                   "Receive a personalized roadmap for career and studies."
                 ].map((step, i) => (
