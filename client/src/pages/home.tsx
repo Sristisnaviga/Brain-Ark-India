@@ -5,8 +5,82 @@ import { Badge } from "@/components/ui/badge";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Brain, Sparkles, GraduationCap, Users, ArrowRight, CheckCircle } from "lucide-react";
+import { useData } from "@/lib/mockData";
 
 export default function Home() {
+  const { language } = useData();
+
+  const content = {
+    en: {
+      badge: "Trusted by 5,000+ Parents in India",
+      heroTitle: "Unlock Your Child's True Potential",
+      heroDesc: "Genetic Brain Profiling (GBP) helps you understand your child's innate learning style, talents, and ideal career path. No more guessing.",
+      ctaBook: "Book a Session",
+      ctaLearn: "Learn More",
+      stats: [
+        { label: "Students Profiled", value: "10,000+" },
+        { label: "Happy Parents", value: "98%" },
+        { label: "Partner Schools", value: "50+" },
+        { label: "Years Experience", value: "12+" },
+      ],
+      whyTitle: "Why Choose Genetic Brain Profiling?",
+      whyDesc: "Every child is unique. Traditional education treats everyone the same. GBP reveals the \"User Manual\" for your child's brain.",
+      features: [
+        { title: "Identify Innate Talents", desc: "Discover if your child is Left-Brained (Analytical) or Right-Brained (Creative) and their specific intelligence types." },
+        { title: "Stream Selection", desc: "Stop the confusion between Science, Commerce, or Arts. Choose based on capability, not just interest." },
+        { title: "Learning Styles", desc: "Does your child learn by seeing, hearing, or doing? Customize their study habits for maximum retention." },
+      ],
+      processTitle: "A Simple Process for Clarity",
+      steps: [
+        "Book a slot for fingerprint scanning (15 mins).",
+        "Our experts generate a detailed report.",
+        "Attend a 1-hour counseling session to understand the report.",
+        "Receive a personalized roadmap for career and studies."
+      ],
+      ctaGetStarted: "Get Started Today",
+      communityTitle: "Join our Parent Community",
+      communityDesc: "Connect with other parents, share experiences about stream selection, and get advice from experts in our moderated forum.",
+      communityCardTitle: "Career Discussions",
+      communityCardDesc: "Latest post 2 mins ago",
+      communityCardContent: "\"My son is confused between Engineering and Architecture. The GBP report suggested...\""
+    },
+    ta: {
+      badge: "இந்தியாவில் 5,000+ பெற்றோர்களால் நம்பப்படுகிறது",
+      heroTitle: "உங்கள் குழந்தையின் உண்மையான திறனை வெளிக்கொணருங்கள்",
+      heroDesc: "மரபணு மூளை சுயவிவரம் (GBP) உங்கள் குழந்தையின் இயல்பான கற்றல் பாணி, திறமைகள் மற்றும் சிறந்த தொழில் பாதையைப் புரிந்துகொள்ள உதவுகிறது. இனி ஊகம் தேவையில்லை.",
+      ctaBook: "அமர்வை முன்பதிவு செய்",
+      ctaLearn: "மேலும் அறிக",
+      stats: [
+        { label: "மாணவர்கள் சுயவிவரம்", value: "10,000+" },
+        { label: "மகிழ்ச்சியான பெற்றோர்கள்", value: "98%" },
+        { label: "பங்குதாரர் பள்ளிகள்", value: "50+" },
+        { label: "ஆண்டுகள் அனுபவம்", value: "12+" },
+      ],
+      whyTitle: "மரபணு மூளை சுயவிவரத்தை ஏன் தேர்வு செய்ய வேண்டும்?",
+      whyDesc: "ஒவ்வொரு குழந்தையும் தனித்துவமானது. பாரம்பரிய கல்வி அனைவரையும் ஒரே மாதிரியாக நடத்துகிறது. GBP உங்கள் குழந்தையின் மூளைக்கான \"பயனர் கையேட்டை\" வெளிப்படுத்துகிறது.",
+      features: [
+        { title: "இயல்பான திறமைகளை அடையாளம் காணுங்கள்", desc: "உங்கள் குழந்தை இடது மூளை (பகுப்பாய்வு) அல்லது வலது மூளை (படைப்பாற்றல்) மற்றும் அவர்களின் குறிப்பிட்ட நுண்ணறிவு வகைகளைக் கண்டறியவும்." },
+        { title: "பாடப்பிரிவு தேர்வு", desc: "அறிவியல், வணிகம் அல்லது கலை ஆகியவற்றுக்கு இடையிலான குழப்பத்தை நிறுத்துங்கள். ஆர்வத்தை மட்டுமல்ல, திறனையும் அடிப்படையாகக் கொண்டு தேர்வு செய்யுங்கள்." },
+        { title: "கற்றல் முறைகள்", desc: "உங்கள் குழந்தை பார்ப்பதன் மூலமா, கேட்பதன் மூலமா அல்லது செய்வதன் மூலமா கற்கிறதா? அதிகபட்ச நினைவாற்றலுக்காக அவர்களின் படிப்பு பழக்கத்தைத் தனிப்பயனாக்குங்கள்." },
+      ],
+      processTitle: "தெளிவுக்கான எளிய செயல்முறை",
+      steps: [
+        "கைரேகை ஸ்கேனிங்கிற்கு ஒரு இடத்தை முன்பதிவு செய்யுங்கள் (15 நிமிடங்கள்).",
+        "எங்கள் நிபுணர்கள் விரிவான அறிக்கையை உருவாக்குகிறார்கள்.",
+        "அறிக்கையைப் புரிந்து கொள்ள 1 மணிநேர ஆலோசனை அமர்வில் கலந்து கொள்ளுங்கள்.",
+        "தொழில் மற்றும் படிப்புகளுக்கான தனிப்பயனாக்கப்பட்ட சாலை வரைபடத்தைப் பெறுங்கள்."
+      ],
+      ctaGetStarted: "இன்றே தொடங்குங்கள்",
+      communityTitle: "எங்கள் பெற்றோர் சமூகத்தில் சேருங்கள்",
+      communityDesc: "பிற பெற்றோர்களுடன் இணையுங்கள், பாடப்பிரிவு தேர்வு பற்றிய அனுபவங்களைப் பகிர்ந்து கொள்ளுங்கள், மேலும் எங்கள் நிபுணர்களிடமிருந்து ஆலோசனையைப் பெறுங்கள்.",
+      communityCardTitle: "தொழில் விவாதங்கள்",
+      communityCardDesc: "சமீபத்திய பதிவு 2 நிமிடங்களுக்கு முன்பு",
+      communityCardContent: "\"என் மகன் பொறியியல் மற்றும் கட்டிடக்கலைக்கு இடையில் குழப்பத்தில் இருக்கிறான். GBP அறிக்கை பரிந்துரைத்தது...\""
+    }
+  };
+
+  const t = language === 'ta' ? content.ta : content.en;
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -19,28 +93,34 @@ export default function Home() {
               transition={{ duration: 0.5 }}
             >
               <Badge variant="outline" className="mb-4 bg-background/50 backdrop-blur border-primary/20 text-primary px-4 py-1">
-                Trusted by 5,000+ Parents in India
+                {t.badge}
               </Badge>
               <h1 className="text-4xl lg:text-6xl font-bold font-serif leading-tight text-foreground">
-                Unlock Your Child's <span className="text-primary relative inline-block">
-                  True Potential
-                  <svg className="absolute w-full h-3 -bottom-1 left-0 text-secondary opacity-50" viewBox="0 0 100 10" preserveAspectRatio="none">
-                    <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" />
-                  </svg>
-                </span>
+                {language === 'ta' ? (
+                  <span>{t.heroTitle}</span>
+                ) : (
+                  <>
+                    Unlock Your Child's <span className="text-primary relative inline-block">
+                      True Potential
+                      <svg className="absolute w-full h-3 -bottom-1 left-0 text-secondary opacity-50" viewBox="0 0 100 10" preserveAspectRatio="none">
+                        <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" />
+                      </svg>
+                    </span>
+                  </>
+                )}
               </h1>
               <p className="text-xl text-muted-foreground mt-6 max-w-2xl mx-auto lg:mx-0">
-                Genetic Brain Profiling (GBP) helps you understand your child's innate learning style, talents, and ideal career path. No more guessing.
+                {t.heroDesc}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center lg:justify-start">
                 <Link href="/book">
                   <Button size="lg" className="rounded-full px-8 h-14 text-lg shadow-lg hover:shadow-xl transition-all">
-                    Book a Session <ArrowRight className="ml-2 w-5 h-5" />
+                    {t.ctaBook} <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
                 </Link>
-                <Link href="/about">
+                <Link href="/about-gbp">
                   <Button variant="outline" size="lg" className="rounded-full px-8 h-14 text-lg bg-background/50 backdrop-blur">
-                    Learn More
+                    {t.ctaLearn}
                   </Button>
                 </Link>
               </div>
@@ -70,12 +150,7 @@ export default function Home() {
       {/* Stats/Trust Section */}
       <section className="py-12 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {[
-            { label: "Students Profiled", value: "10,000+" },
-            { label: "Happy Parents", value: "98%" },
-            { label: "Partner Schools", value: "50+" },
-            { label: "Years Experience", value: "12+" },
-          ].map((stat, i) => (
+          {t.stats.map((stat, i) => (
             <div key={i} className="space-y-2">
               <div className="text-3xl lg:text-4xl font-bold font-serif">{stat.value}</div>
               <div className="text-primary-foreground/80 text-sm font-medium uppercase tracking-wider">{stat.label}</div>
@@ -88,34 +163,18 @@ export default function Home() {
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 font-serif">Why Choose Genetic Brain Profiling?</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4 font-serif">{t.whyTitle}</h2>
             <p className="text-muted-foreground text-lg">
-              Every child is unique. Traditional education treats everyone the same. GBP reveals the "User Manual" for your child's brain.
+              {t.whyDesc}
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Brain,
-                title: "Identify Innate Talents",
-                desc: "Discover if your child is Left-Brained (Analytical) or Right-Brained (Creative) and their specific intelligence types."
-              },
-              {
-                icon: GraduationCap,
-                title: "Stream Selection",
-                desc: "Stop the confusion between Science, Commerce, or Arts. Choose based on capability, not just interest."
-              },
-              {
-                icon: Sparkles,
-                title: "Learning Styles",
-                desc: "Does your child learn by seeing, hearing, or doing? Customize their study habits for maximum retention."
-              }
-            ].map((feature, i) => (
+            {t.features.map((feature, i) => (
               <Card key={i} className="border-none shadow-lg hover:shadow-xl transition-shadow bg-card/50 backdrop-blur">
                 <CardHeader>
                   <div className="w-14 h-14 rounded-2xl bg-secondary/20 flex items-center justify-center mb-4 text-secondary-foreground">
-                    <feature.icon className="w-8 h-8" />
+                    {i === 0 ? <Brain className="w-8 h-8" /> : i === 1 ? <GraduationCap className="w-8 h-8" /> : <Sparkles className="w-8 h-8" />}
                   </div>
                   <CardTitle className="text-xl">{feature.title}</CardTitle>
                 </CardHeader>
@@ -135,14 +194,9 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl lg:text-4xl font-bold mb-6 font-serif">A Simple Process for Clarity</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold mb-6 font-serif">{t.processTitle}</h2>
               <div className="space-y-8">
-                {[
-                  "Book a slot for fingerprint scanning (15 mins).",
-                  "Our experts generate a detailed report.",
-                  "Attend a 1-hour counseling session to understand the report.",
-                  "Receive a personalized roadmap for career and studies."
-                ].map((step, i) => (
+                {t.steps.map((step, i) => (
                   <div key={i} className="flex gap-4">
                     <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
                       {i + 1}
@@ -153,7 +207,7 @@ export default function Home() {
               </div>
               <div className="mt-10">
                 <Link href="/book">
-                  <Button size="lg" className="rounded-full">Get Started Today</Button>
+                  <Button size="lg" className="rounded-full">{t.ctaGetStarted}</Button>
                 </Link>
               </div>
             </div>
@@ -167,9 +221,9 @@ export default function Home() {
       {/* Community Teaser */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8 font-serif">Join our Parent Community</h2>
+          <h2 className="text-3xl font-bold mb-8 font-serif">{t.communityTitle}</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mb-12">
-            Connect with other parents, share experiences about stream selection, and get advice from experts in our moderated forum.
+            {t.communityDesc}
           </p>
           <div className="flex justify-center gap-4">
             <Link href="/community">
@@ -179,12 +233,12 @@ export default function Home() {
                     <Users className="w-6 h-6 text-orange-600" />
                   </div>
                   <div>
-                    <CardTitle className="text-lg group-hover:text-primary transition-colors">Career Discussions</CardTitle>
-                    <CardDescription>Latest post 2 mins ago</CardDescription>
+                    <CardTitle className="text-lg group-hover:text-primary transition-colors">{t.communityCardTitle}</CardTitle>
+                    <CardDescription>{t.communityCardDesc}</CardDescription>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  "My son is confused between Engineering and Architecture. The GBP report suggested..."
+                  {t.communityCardContent}
                 </CardContent>
               </Card>
             </Link>

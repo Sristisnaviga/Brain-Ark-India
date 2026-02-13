@@ -15,6 +15,7 @@ import Profile from "@/pages/profile";
 import AdminDashboard from "@/pages/admin";
 import Grade10Landing from "@/pages/grade-10";
 import Grade12Landing from "@/pages/grade-12";
+import AboutGBP from "@/pages/about-gbp";
 
 function Router() {
   return (
@@ -28,7 +29,8 @@ function Router() {
       <Route path="/admin" component={AdminDashboard} />
       <Route path="/grade-10" component={Grade10Landing} />
       <Route path="/grade-12" component={Grade12Landing} />
-      <Route path="/about" component={Home} />
+      <Route path="/about" component={AboutGBP} />
+      <Route path="/about-gbp" component={AboutGBP} />
       
       <Route component={NotFound} />
     </Switch>
