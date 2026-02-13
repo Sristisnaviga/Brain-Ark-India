@@ -12,7 +12,7 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  const { user, logout, isAdmin, language, setLanguage } = useData();
+  const { user, logout, isAdmin } = useData();
   const [location] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -28,10 +28,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
     );
   };
 
-  const toggleLanguage = () => {
-    setLanguage(language === 'en' ? 'ta' : 'en');
-  };
-
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans">
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -39,8 +35,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
           {/* Logo */}
           <Link href="/">
             <div className="flex items-center gap-2 cursor-pointer">
-              <div className="bg-primary/10 p-2 rounded-lg">
-                <BrainCircuit className="w-6 h-6 text-primary" />
+              <div className="bg-primary/10 p-1 rounded-full">
+                <img src="/logo.png" alt="Sristi BrainArk Logo" className="w-8 h-8" />
               </div>
               <span className="text-xl font-bold font-serif tracking-tight text-foreground">
                 Sristi <span className="text-primary">BrainArk</span>
@@ -60,11 +56,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Desktop Right Side */}
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost" size="sm" onClick={toggleLanguage} className="gap-2">
-              <Languages className="w-4 h-4" />
-              {language === 'en' ? 'தமிழ்' : 'English'}
-            </Button>
-            
             {user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -89,9 +80,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Mobile Menu */}
           <div className="md:hidden flex items-center gap-2">
-             <Button variant="ghost" size="sm" onClick={toggleLanguage} className="px-2">
-              {language === 'en' ? 'தமிழ்' : 'Eng'}
-            </Button>
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon"><Menu className="w-6 h-6" /></Button>
@@ -133,7 +121,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <div className="container mx-auto px-4 grid md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <BrainCircuit className="w-5 h-5 text-primary" />
+              <img src="/logo.png" alt="Sristi BrainArk Logo" className="w-6 h-6" />
               <span className="text-lg font-bold font-serif">Sristi BrainArk</span>
             </div>
             <p className="text-muted-foreground max-w-sm">

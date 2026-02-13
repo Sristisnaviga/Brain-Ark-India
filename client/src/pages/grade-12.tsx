@@ -8,8 +8,6 @@ import { Compass, Briefcase, ArrowRight, Target, Globe } from "lucide-react";
 import { useData } from "@/lib/mockData";
 
 export default function Grade12Landing() {
-  const { language } = useData();
-  
   const content = {
     en: {
       badge: "For Grade 12 Students & Parents",
@@ -33,33 +31,10 @@ export default function Grade12Landing() {
           desc: "Avoid dropping out later by choosing a degree that matches your personality and aptitude."
         }
       ]
-    },
-    ta: {
-      badge: "12 ஆம் வகுப்பு மாணவர்களுக்கும் பெற்றோர்களுக்கும்",
-      title: "பொறியியல், மருத்துவம் அல்லது நிர்வாகம்?",
-      subtitle: "உங்கள் மூளை வடிவமைப்புக்கு ஏற்ற வாழ்க்கையை வடிவமைக்கவும்.",
-      desc: "12 ஆம் வகுப்பு தொழில்முறை வாழ்க்கைக்கான நுழைவாயில். கூட்டத்தைப் பின்தொடர வேண்டாம். உங்கள் இயற்கையான பலங்களுக்கு ஏற்ற பாதையைக் கண்டறியவும்.",
-      cta: "வாழ்க்கை வழிகாட்டுதல் அமர்வை முன்பதிவு செய்யவும்",
-      learnMore: "எப்படி இது செயல்படுகிறது",
-      whyTitle: "12 ஆம் வகுப்புக்கான தொழில் தெளிவு",
-      benefits: [
-        {
-          title: "தொழில் வரைபடம்",
-          desc: "உங்கள் சரியான பொருத்தத்தைக் கண்டறிய 200+ தொழில் விருப்பங்களுடன் உங்கள் திறன்களைப் பொருத்துங்கள்."
-        },
-        {
-          title: "நுழைவுத் தேர்வு உத்தி",
-          desc: "NEET, JEE அல்லது CA தேர்வுகளுக்கு சிறப்பாகத் திட்டமிட உங்கள் செயலாக்க வேகத்தைப் புரிந்து கொள்ளுங்கள்."
-        },
-        {
-          title: "கல்லூரி படிப்பு தேர்வு",
-          desc: "உங்கள் ஆளுமை மற்றும் திறமைக்கு ஏற்ற பட்டப்படிப்பைத் தேர்ந்தெடுப்பதன் மூலம் பின்னர் கைவிடுவதைத் தவிர்க்கவும்."
-        }
-      ]
     }
   };
 
-  const t = language === 'ta' ? content.ta : content.en;
+  const t = content.en;
 
   return (
     <Layout>

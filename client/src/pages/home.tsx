@@ -8,8 +8,6 @@ import { Brain, Sparkles, GraduationCap, Users, ArrowRight, CheckCircle } from "
 import { useData } from "@/lib/mockData";
 
 export default function Home() {
-  const { language } = useData();
-
   const content = {
     en: {
       badge: "Trusted by 5,000+ Parents in India",
@@ -43,43 +41,10 @@ export default function Home() {
       communityCardTitle: "Career Discussions",
       communityCardDesc: "Latest post 2 mins ago",
       communityCardContent: "\"My son is confused between Engineering and Architecture. The GBP report suggested...\""
-    },
-    ta: {
-      badge: "இந்தியாவில் 5,000+ பெற்றோர்களால் நம்பப்படுகிறது",
-      heroTitle: "உங்கள் குழந்தையின் உண்மையான திறனை வெளிக்கொணருங்கள்",
-      heroDesc: "மரபணு மூளை சுயவிவரம் (GBP) உங்கள் குழந்தையின் இயல்பான கற்றல் பாணி, திறமைகள் மற்றும் சிறந்த தொழில் பாதையைப் புரிந்துகொள்ள உதவுகிறது. இனி ஊகம் தேவையில்லை.",
-      ctaBook: "அமர்வை முன்பதிவு செய்",
-      ctaLearn: "மேலும் அறிக",
-      stats: [
-        { label: "மாணவர்கள் சுயவிவரம்", value: "10,000+" },
-        { label: "மகிழ்ச்சியான பெற்றோர்கள்", value: "98%" },
-        { label: "பங்குதாரர் பள்ளிகள்", value: "50+" },
-        { label: "ஆண்டுகள் அனுபவம்", value: "12+" },
-      ],
-      whyTitle: "மரபணு மூளை சுயவிவரத்தை ஏன் தேர்வு செய்ய வேண்டும்?",
-      whyDesc: "ஒவ்வொரு குழந்தையும் தனித்துவமானது. பாரம்பரிய கல்வி அனைவரையும் ஒரே மாதிரியாக நடத்துகிறது. GBP உங்கள் குழந்தையின் மூளைக்கான \"பயனர் கையேட்டை\" வெளிப்படுத்துகிறது.",
-      features: [
-        { title: "இயல்பான திறமைகளை அடையாளம் காணுங்கள்", desc: "உங்கள் குழந்தை இடது மூளை (பகுப்பாய்வு) அல்லது வலது மூளை (படைப்பாற்றல்) மற்றும் அவர்களின் குறிப்பிட்ட நுண்ணறிவு வகைகளைக் கண்டறியவும்." },
-        { title: "பாடப்பிரிவு தேர்வு", desc: "அறிவியல், வணிகம் அல்லது கலை ஆகியவற்றுக்கு இடையிலான குழப்பத்தை நிறுத்துங்கள். ஆர்வத்தை மட்டுமல்ல, திறனையும் அடிப்படையாகக் கொண்டு தேர்வு செய்யுங்கள்." },
-        { title: "கற்றல் முறைகள்", desc: "உங்கள் குழந்தை பார்ப்பதன் மூலமா, கேட்பதன் மூலமா அல்லது செய்வதன் மூலமா கற்கிறதா? அதிகபட்ச நினைவாற்றலுக்காக அவர்களின் படிப்பு பழக்கத்தைத் தனிப்பயனாக்குங்கள்." },
-      ],
-      processTitle: "தெளிவுக்கான எளிய செயல்முறை",
-      steps: [
-        "கைரேகை ஸ்கேனிங்கிற்கு ஒரு இடத்தை முன்பதிவு செய்யுங்கள் (15 நிமிடங்கள்).",
-        "எங்கள் நிபுணர்கள் விரிவான அறிக்கையை உருவாக்குகிறார்கள்.",
-        "அறிக்கையைப் புரிந்து கொள்ள 1 மணிநேர ஆலோசனை அமர்வில் கலந்து கொள்ளுங்கள்.",
-        "தொழில் மற்றும் படிப்புகளுக்கான தனிப்பயனாக்கப்பட்ட சாலை வரைபடத்தைப் பெறுங்கள்."
-      ],
-      ctaGetStarted: "இன்றே தொடங்குங்கள்",
-      communityTitle: "எங்கள் பெற்றோர் சமூகத்தில் சேருங்கள்",
-      communityDesc: "பிற பெற்றோர்களுடன் இணையுங்கள், பாடப்பிரிவு தேர்வு பற்றிய அனுபவங்களைப் பகிர்ந்து கொள்ளுங்கள், மேலும் எங்கள் நிபுணர்களிடமிருந்து ஆலோசனையைப் பெறுங்கள்.",
-      communityCardTitle: "தொழில் விவாதங்கள்",
-      communityCardDesc: "சமீபத்திய பதிவு 2 நிமிடங்களுக்கு முன்பு",
-      communityCardContent: "\"என் மகன் பொறியியல் மற்றும் கட்டிடக்கலைக்கு இடையில் குழப்பத்தில் இருக்கிறான். GBP அறிக்கை பரிந்துரைத்தது...\""
     }
   };
 
-  const t = language === 'ta' ? content.ta : content.en;
+  const t = content.en;
 
   return (
     <Layout>
@@ -96,18 +61,12 @@ export default function Home() {
                 {t.badge}
               </Badge>
               <h1 className="text-4xl lg:text-6xl font-bold font-serif leading-tight text-foreground">
-                {language === 'ta' ? (
-                  <span>{t.heroTitle}</span>
-                ) : (
-                  <>
-                    Unlock Your Child's <span className="text-primary relative inline-block">
-                      True Potential
-                      <svg className="absolute w-full h-3 -bottom-1 left-0 text-secondary opacity-50" viewBox="0 0 100 10" preserveAspectRatio="none">
-                        <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" />
-                      </svg>
-                    </span>
-                  </>
-                )}
+                Unlock Your Child's <span className="text-primary relative inline-block">
+                  True Potential
+                  <svg className="absolute w-full h-3 -bottom-1 left-0 text-secondary opacity-50" viewBox="0 0 100 10" preserveAspectRatio="none">
+                    <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" />
+                  </svg>
+                </span>
               </h1>
               <p className="text-xl text-muted-foreground mt-6 max-w-2xl mx-auto lg:mx-0">
                 {t.heroDesc}

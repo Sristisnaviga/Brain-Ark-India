@@ -10,10 +10,12 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Check, Calendar as CalendarIcon, MessageCircle, AlertCircle } from "lucide-react";
 import { format } from "date-fns";
+import { DownloadInvoiceButton } from "@/components/invoice-generator";
 import { Badge } from "@/components/ui/badge";
+import { Smartphone } from "lucide-react";
 
 export default function BookSession() {
-  const { user, addBooking, language } = useData();
+  const { user, addBooking } = useData();
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [selectedTime, setSelectedTime] = useState<string | undefined>();
   const [reportType, setReportType] = useState<"Child" | "Adult">("Child");
@@ -53,42 +55,10 @@ export default function BookSession() {
       mins: "45 Mins",
       selectDatePlace: "Select date",
       selectTimePlace: "Select time"
-    },
-    ta: {
-      title: "உங்கள் GBP அமர்வை முன்பதிவு செய்யுங்கள்",
-      subtitle: "உங்கள் குழந்தையின் மூளை சுயவிவரத்திற்கு வசதியான தேதி மற்றும் நேரத்தைத் தேர்ந்தெடுக்கவும்.",
-      selectReport: "அறிக்கை வகையைத் தேர்ந்தெடுக்கவும்",
-      child: "மாணவர் / குழந்தை",
-      childDesc: "10 மற்றும் 12 ஆம் வகுப்பு மாணவர்களுக்கு",
-      adult: "வயது வந்தோர் / தொழில்முறை",
-      adultDesc: "தொழில் வளர்ச்சி மற்றும் சுய விழிப்புணர்வுக்காக",
-      selectDate: "தேதியைத் தேர்ந்தெடுக்கவும்",
-      selectTime: "நேரத்தைத் தேர்ந்தெடுக்கவும்",
-      summary: "முன்பதிவு சுருக்கம்",
-      service: "சேவை:",
-      duration: "கால அளவு:",
-      date: "தேதி:",
-      time: "நேரம்:",
-      total: "மொத்தம்",
-      note: "அறிக்கை உருவாக்கம் மற்றும் 1 ஆலோசனை அமர்வு ஆகியவை அடங்கும்.",
-      loginRequired: "தயவுசெய்து உள்நுழையவும்",
-      loginDesc: "அமர்வை முன்பதிவு செய்ய நீங்கள் உள்நுழைய வேண்டும்.",
-      incomplete: "முழுமையற்ற தேர்வு",
-      incompleteDesc: "தயவுசெய்து தேதி மற்றும் நேரம் இரண்டையும் தேர்ந்தெடுக்கவும்.",
-      requestPayment: "வாட்ஸ்அப் வழியாக கட்டண இணைப்பைக் கோருங்கள்",
-      securedBy: "பாதுகாப்பான இணைப்பு வழியாக கட்டணம்",
-      confirmedTitle: "முன்பதிவு கோரிக்கை தொடங்கப்பட்டது!",
-      confirmedDesc: "உங்கள் இடத்தை உறுதிப்படுத்த வாட்ஸ்அப் வழியாக கட்டணத்தை முடிக்கவும்.",
-      whatsAppSent: "கட்டண இணைப்பைக் கோர வாட்ஸ்அப் அரட்டை திறக்கப்பட்டது.",
-      viewDashboard: "டாஷ்போர்டைப் பார்க்கவும்",
-      backHome: "முகப்புக்குத் திரும்பு",
-      mins: "45 நிமிடங்கள்",
-      selectDatePlace: "தேதியைத் தேர்ந்தெடுக்கவும்",
-      selectTimePlace: "நேரத்தைத் தேர்ந்தெடுக்கவும்"
     }
   };
 
-  const t = language === 'ta' ? content.ta : content.en;
+  const t = content.en;
 
   const timeSlots = [
     "10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM"
@@ -158,9 +128,15 @@ export default function BookSession() {
               </div>
               
               <div className="flex items-center gap-3 p-3 bg-green-100 rounded-md text-green-800 text-sm">
-                <MessageCircle className="w-5 h-5 flex-shrink-0" />
+                <Smartphone className="w-5 h-5 flex-shrink-0" />
                 <p>{t.whatsAppSent}</p>
               </div>
+
+              {user && confirmedBooking && (
+                <div className="pt-2">
+                   <DownloadInvoiceButton booking={confirmedBooking} user={user} />
+                </div>
+              )}
             </CardContent>
             <CardFooter className="justify-center gap-4 flex-col sm:flex-row">
               <Link href="/dashboard"><Button variant="outline" className="w-full sm:w-auto">{t.viewDashboard}</Button></Link>

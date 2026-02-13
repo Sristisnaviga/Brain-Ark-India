@@ -101,8 +101,6 @@ type DataContextType = {
   users: User[];
   posts: Post[];
   bookings: Booking[];
-  language: 'en' | 'ta';
-  setLanguage: (lang: 'en' | 'ta') => void;
   login: (email: string) => void;
   logout: () => void;
   register: (name: string, email: string, role: User["role"]) => void;
@@ -119,7 +117,6 @@ export function DataProvider({ children }: { children: ReactNode }) {
   const [users, setUsers] = useState<User[]>(INITIAL_USERS);
   const [posts, setPosts] = useState<Post[]>(INITIAL_POSTS);
   const [bookings, setBookings] = useState<Booking[]>(INITIAL_BOOKINGS);
-  const [language, setLanguage] = useState<'en' | 'ta'>('en');
   const [, setLocation] = useLocation();
   const { toast } = useToast();
 
@@ -189,7 +186,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
 
   return (
     <DataContext.Provider value={{ 
-      user, users, posts, bookings, language, setLanguage,
+      user, users, posts, bookings,
       login, logout, register, 
       addBooking, addPost, likePost, 
       isAdmin: user?.role === "admin" 
