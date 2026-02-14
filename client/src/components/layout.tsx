@@ -36,7 +36,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <Link href="/">
             <div className="flex items-center gap-2 cursor-pointer">
               <div className="bg-primary/10 p-1 rounded-full">
-                <img src="/logo.png" alt="Sristi BrainArk Logo" className="w-8 h-8" />
+                <img src="/brain-logo.png" alt="Sristi BrainArk Logo" className="w-8 h-8 object-contain" />
               </div>
               <span className="text-xl font-bold font-serif tracking-tight text-foreground">
                 Sristi <span className="text-primary">BrainArk</span>
@@ -121,7 +121,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <div className="container mx-auto px-4 grid md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <img src="/logo.png" alt="Sristi BrainArk Logo" className="w-6 h-6" />
+              <img src="/brain-logo.png" alt="Sristi BrainArk Logo" className="w-6 h-6 object-contain" />
               <span className="text-lg font-bold font-serif">Sristi BrainArk</span>
             </div>
             <p className="text-muted-foreground max-w-sm">
