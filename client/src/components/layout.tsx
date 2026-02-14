@@ -34,11 +34,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           {/* Logo */}
           <Link href="/">
-            <div className="flex items-center gap-2 cursor-pointer">
-              <div className="bg-primary/10 p-1 rounded-full">
-                <img src="/brain-logo.png" alt="Sristi BrainArk Logo" className="w-8 h-8 object-contain" />
+            <div className="flex items-center gap-3 cursor-pointer group">
+              <div className="bg-primary/10 p-1.5 rounded-full ring-2 ring-primary/20 transition-all group-hover:ring-primary/40">
+                <img src="/brain-logo-v2.png" alt="Sristi BrainArk Logo" className="w-10 h-10 object-contain" />
               </div>
-              <span className="text-xl font-bold font-serif tracking-tight text-foreground">
+              <span className="text-2xl font-bold font-serif tracking-tight text-foreground">
                 Sristi <span className="text-primary">BrainArk</span>
               </span>
             </div>
@@ -120,9 +120,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <footer className="bg-muted py-12 mt-12">
         <div className="container mx-auto px-4 grid md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <img src="/brain-logo.png" alt="Sristi BrainArk Logo" className="w-6 h-6 object-contain" />
-              <span className="text-lg font-bold font-serif">Sristi BrainArk</span>
+            <div className="flex items-center gap-3 mb-6">
+              <img src="/brain-logo-v2.png" alt="Sristi BrainArk Logo" className="w-8 h-8 object-contain" />
+              <span className="text-xl font-bold font-serif">Sristi BrainArk</span>
             </div>
             <p className="text-muted-foreground max-w-sm">
               Empowering students and parents with Genetic Brain Profiling to make informed career and life choices.
