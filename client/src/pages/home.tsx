@@ -72,14 +72,14 @@ export default function Home() {
                 {t.heroDesc}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center lg:justify-start">
-                <Link href="/book">
+                <Link href="/about-gbp">
                   <Button size="lg" className="rounded-full px-8 h-14 text-lg shadow-lg hover:shadow-xl transition-all">
-                    {t.ctaBook} <ArrowRight className="ml-2 w-5 h-5" />
+                    {t.ctaLearn}
                   </Button>
                 </Link>
-                <Link href="/about-gbp">
+                <Link href="/book">
                   <Button variant="outline" size="lg" className="rounded-full px-8 h-14 text-lg bg-background/50 backdrop-blur">
-                    {t.ctaLearn}
+                    {t.ctaBook} <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
                 </Link>
               </div>
