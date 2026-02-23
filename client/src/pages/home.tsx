@@ -16,10 +16,9 @@ export default function Home() {
       ctaBook: "Book a Session",
       ctaLearn: "Learn More",
       stats: [
-        { label: "Students Profiled", value: "10,000+" },
-        { label: "Happy Parents", value: "98%" },
-        { label: "Partner Schools", value: "50+" },
-        { label: "Years Experience", value: "12+" },
+        { label: "Students Profiled", value: "10,000+", icon: "GraduationCap" },
+        { label: "Happy Parents", value: "98%", icon: "Users" },
+        { label: "Years Experience", value: "15+", icon: "Sparkles" },
       ],
       whyTitle: "Why Choose Genetic Brain Profiling?",
       whyDesc: "Every child is unique. Traditional education treats everyone the same. GBP reveals the \"User Manual\" for your child's brain.",
@@ -107,14 +106,32 @@ export default function Home() {
       </section>
 
       {/* Stats/Trust Section */}
-      <section className="py-12 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {t.stats.map((stat, i) => (
-            <div key={i} className="space-y-2">
-              <div className="text-3xl lg:text-4xl font-bold font-serif">{stat.value}</div>
-              <div className="text-primary-foreground/80 text-sm font-medium uppercase tracking-wider">{stat.label}</div>
-            </div>
-          ))}
+      <section className="py-16 bg-primary text-primary-foreground relative overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center mb-12">
+            {t.stats.map((stat, i) => (
+              <div key={i} className="space-y-4 group">
+                <div className="flex justify-center">
+                  <div className="p-3 bg-white/10 rounded-2xl backdrop-blur-sm group-hover:bg-white/20 transition-colors">
+                    {stat.icon === "GraduationCap" && <GraduationCap className="w-8 h-8" />}
+                    {stat.icon === "Users" && <Users className="w-8 h-8" />}
+                    {stat.icon === "Sparkles" && <Sparkles className="w-8 h-8" />}
+                  </div>
+                </div>
+                <div>
+                  <div className="text-4xl lg:text-5xl font-bold font-serif mb-1">{stat.value}</div>
+                  <div className="text-primary-foreground/80 text-sm font-medium uppercase tracking-wider">{stat.label}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="pt-8 border-t border-white/10 text-center">
+            <p className="text-primary-foreground/60 font-medium tracking-widest uppercase text-xs flex items-center justify-center gap-2">
+              <span className="w-8 h-px bg-white/20"></span>
+              Powered by MiDNA Global
+              <span className="w-8 h-px bg-white/20"></span>
+            </p>
+          </div>
         </div>
       </section>
 
