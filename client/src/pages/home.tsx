@@ -125,13 +125,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div className="pt-8 border-t border-white/10 text-center">
-            <p className="text-primary-foreground/60 font-medium tracking-widest uppercase text-xs flex items-center justify-center gap-2">
-              <span className="w-8 h-px bg-white/20"></span>
-              Powered by MiDNA Global
-              <span className="w-8 h-px bg-white/20"></span>
-            </p>
-          </div>
         </div>
       </section>
 
